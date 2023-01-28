@@ -11,4 +11,6 @@ int main()
     for(int val : neigh){
         std::cout << "->" << val << std::endl; 
     }
+
+    Dijkstra<int> dijk = Dijkstra<int>();
 }
