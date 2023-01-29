@@ -8,6 +8,7 @@ class Environment
 {
     public:
         virtual std::vector<state> neighbor(state) = 0;
+        virtual bool is_valid_state(state) = 0;
         //virtual long long key(state) = 0;      
 };
 
@@ -41,6 +42,13 @@ class Grid_Map : public Environment<state>
             return (y * grid.size()) + x;
         }
 
+        bool is_valid_state(state s)
+        {
+            int c,r;
+            std::tie(c, r) = get_index(s);
+            return is_valid_cell(r,c);
+        }
+        
         bool is_valid_cell(int x, int y)
         {
             //Valid boundary
